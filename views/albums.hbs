@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h1>Albums</h1>
+    <div class="albums cnt">
+        {{#each items}}
+        {{#if this.images.0.url}}
+        <div class="card">
+            <img src="{{this.images.0.url}}" alt="" width="200">
+            <div class="info">
+                <p>{{this.name}}</p>
+                <a href="/tracks/{{this.id}}">
+                <button>View Albums</button></a>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
