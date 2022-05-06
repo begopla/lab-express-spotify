@@ -33,7 +33,7 @@ const spotifyApi = new SpotifyWebApi({
         spotifyApi
          .searchArtists(q)
          .then(data => {
-           console.log('The received data from the API: ', data.body.artists.items);
+           //console.log('The received data from the API: ', data.body.artists.items);
            const items = data.body.artists.items;
            
             // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
@@ -51,7 +51,7 @@ app.get('/albums/:artistId', (req, res, next) => {
   .then(
     (data =>{
       const items = data.body.items;
-      console.log('Artis albums:',items);
+      //console.log('Artis albums:',items);
       res.render('albums', {items});
     }))
     .catch(err =>console.log('The error while searching artists occurred: ', err));
@@ -63,11 +63,11 @@ app.get('/albums/:artistId', (req, res, next) => {
 app.get('/tracks/:albumId', (req, res) => {
   
   spotifyApi.getAlbumTracks(req.params.albumId)
-  .then(function(data) {
-    const item = data.body.items;
-    console.log(item);
+  .then( data => {
+    const tracks = data.body.items;
+   
     //you always need to render an object if the data is an object is optional to use the parameters. 
-    res.render("tracks", {item});
+    res.render("tracks", {tracks});
   }, function(err) {
     console.log('Something went wrong!', err);
   });
