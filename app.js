@@ -51,11 +51,11 @@ app.get('/albums/:artistId', (req, res, next) => {
   .then(
     (data =>{
       const items = data.body.items;
-      console.log('Artis albums:',{items});
+      console.log('Artis albums:',items);
       res.render('albums', {items});
-    })
-    .catch(err =>console.log('The error while searching artists occurred: ', err))
-  );
+    }))
+    .catch(err =>console.log('The error while searching artists occurred: ', err));
+  
 });
 
 
@@ -66,6 +66,7 @@ app.get('/tracks/:albumId', (req, res) => {
   .then(function(data) {
     const item = data.body.items;
     console.log(item);
+    //you always need to render an object if the data is an object is optional to use the parameters. 
     res.render("tracks", {item});
   }, function(err) {
     console.log('Something went wrong!', err);

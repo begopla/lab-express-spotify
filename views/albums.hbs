@@ -8,8 +8,9 @@
             <img src="{{this.images.0.url}}" alt="" width="200">
             <div class="info">
                 <p>{{this.name}}</p>
-                <a href="/tracks/{{this.id}}">
-                <button>View Albums</button></a>
+                {{!-- The naming of href should be the same as in the app.get  --}}
+                <a href="/tracks/{{this.albumId}}">
+                <button>View tracks</button></a>
             </div>
         </div>
         {{/if}}

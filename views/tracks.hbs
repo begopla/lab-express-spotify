@@ -1,6 +1,7 @@
 <div>
     {{#each item}}
-    <p>{{name}}</p>
+{{!-- Inside each we need to call the data with this.name --}}
+    <p>{{this.name}}</p>
 </div>
 <div>
 
